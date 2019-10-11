@@ -34,8 +34,8 @@ public class SoNguyenTo {
                 else n++;
             } 
             return n;
-          
+        }  
         
     }   
     
-}
+

@@ -3,26 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab2;
-import java.util.Scanner;
+package b2;
+
 /**
  *
  * @author Long
  */
-
-public class Lab2 {
+public class B2 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        TamGiac s = new TamGiac();
+        System.out.println(s.chuvi());
+        System.out.println(s.dientich());
+        
         // TODO code application logic here
-        Scanner in = new Scanner(System.in);
-        SoNguyenTo x = new SoNguyenTo();
-        int n = in.nextInt();
-        x.setSNT(n);
-        int b = x.timSoNguyenToTiepTheo();
-        System.out.println(b);
-        Double.parseDouble(s)   }
+    }
     
 }
