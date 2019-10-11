@@ -47,11 +47,10 @@ public class PhanSo {
         else System.out.println("Phan so: "+ this.tuSo+"/"+this.mauSo);
     }
     public PhanSo rutGon(){
-        PhanSo temp = new PhanSo(this.getTS(),this.getMS());
         int i = timUSCLN(this.getTS(),this.getMS());
-        temp.setTS(this.getTS()/i);
-        temp.setMS(this.getMS()/i);   
-        return temp;
+        this.setTS(this.getTS()/i);
+        this.setMS(this.getMS()/i);   
+        return this;
     }
     public PhanSo nghichDao(){
         if(this.tuSo == 0){
@@ -75,7 +74,7 @@ public class PhanSo {
     }
     public PhanSo sub(PhanSo b){
         PhanSo temp = new PhanSo();
-        int t= this.getTS()*b.getMS()-this.getMS()*b.getTS();
+        int t= this.getTS()*b.getMS() - this.getMS()*b.getTS();
         int s= this.getMS()*b.getMS();
         temp.setTS(t);
         temp.setMS(s);
@@ -103,7 +102,9 @@ public class PhanSo {
     }   
     
     public int timUSCLN(int a, int b) {
-        while (a != b) {
+        if(a<0) a*=-1;
+        if(b<0) b*=-1;
+        while (a != b ) {
             if (a > b) {
                 a -= b;
             } else {
