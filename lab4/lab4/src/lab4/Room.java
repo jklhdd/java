@@ -19,12 +19,12 @@ public class Room {
     }
     
     
-    public void addU(){
-        User u = new User();        
+    public void addU(){                
         Scanner in = new Scanner(System.in);
         System.out.println("Nhap so nguoi:");
         int count = Integer.parseInt(in.nextLine());
         while(count!=0){
+            User u = new User();
             u.addUser();
             this.danhsach.add(u);
             count--;
