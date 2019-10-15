@@ -3,24 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab4;
-
+package b1;
+import java.util.Scanner;
 /**
  *
  * @author Long
  */
-public class Lab4 {
+public class B1 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
         // TODO code application logic here
-        Room r1 = new Room();
-        r1.addRoom();
-        r1.deleteUser(2);
-        r1.printRoom();
+        Cart c = new Cart();      
+        Scanner in = new Scanner(System.in);
+        c.nhapCart();
+        c.inCart(); 
+        c.removeP(1);
+        c.inCart();
+                
     }
     
 }
