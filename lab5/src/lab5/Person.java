@@ -65,7 +65,7 @@ public class Person {
         this.setTen(in.nextLine());
         System.out.println("Gioi tinh: ");
         this.setGioitinh(in.nextLine());
-        System.out.println("Ngay sinh: ");
+        System.out.println("Ngay sinh:(dd-mm-yyyy) ");
         this.setNgaysinh(in.nextLine());
         System.out.println("Dia chi: ");
         this.setDiachi(in.nextLine());
