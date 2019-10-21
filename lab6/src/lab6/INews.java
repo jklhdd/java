@@ -9,6 +9,6 @@ package lab6;
  *
  * @author Long
  */
-public class INews {
-    
+interface INews {
+    public void Display();
 }

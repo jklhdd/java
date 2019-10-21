@@ -16,6 +16,11 @@ public class Lab6 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        int[] RateList = {1,2,3};
+        News n = new News(0, "Hai", "18-10-2019", "Long", "Hai");
+        n.calculate(RateList);
+        
     }
     
 }
