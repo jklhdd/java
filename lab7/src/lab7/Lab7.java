@@ -79,7 +79,7 @@ public class Lab7 {
                         System.out.println("=======================");    
                     }
                 }
-                case 0:break;
+                case 0:return;
             }
             
         }
