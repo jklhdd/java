@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:controller="javafxapplication3.UserController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="199.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW USER">
+         <font>
+            <Font name=".VnArial Bold" size="37.0" />
+         </font>
+      </Text>
+      <TextField fx:id="name" layoutX="52.0" layoutY="101.0" prefHeight="40.0" prefWidth="496.0" promptText="Name" />
+      <TextField fx:id="age" layoutX="52.0" layoutY="160.0" prefHeight="40.0" prefWidth="496.0" promptText="Age" />
+      <TextField fx:id="email" layoutX="52.0" layoutY="224.0" prefHeight="40.0" prefWidth="496.0" promptText="Email" />
+      <TextArea fx:id="address" layoutX="51.0" layoutY="298.0" prefHeight="65.0" prefWidth="496.0" promptText="Address" />
+      <Button onAction="#listUser"  layoutX="470.0" layoutY="389.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="78.0" text="Submit" />
+   </children>
+</Pane>
