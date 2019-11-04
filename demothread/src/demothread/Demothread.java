@@ -21,9 +21,14 @@ public class Demothread {
         // TODO code application logic here  
         
         Runnable r1 = ()->{
-            for(int i = 600;i>0;i--){                
+            for(int i = 600;i>0;i--){  
+                int min = i/60;
+                int sec = i%60;
                 try {
-                    System.out.println(i/60+":"+i%60);
+                    if(min < 10 && sec < 10) System.out.println("0"+i/60+":"+"0"+i%60);
+                    else if(min < 10 ) System.out.println("0"+i/60+":"+i%60);
+                    else if(sec < 10 ) System.out.println(i/60+":"+"0"+i%60);
+                    else System.out.println(i/60+":"+i%60);
                     Thread.sleep(1000);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Demothread.class.getName()).log(Level.SEVERE, null, ex);
