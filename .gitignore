@@ -40,3 +40,5 @@ test/manifest.mf
 test/nbproject/genfiles.properties
 test/src/test/Hotel.java
 test/src/test/Hotel.java
+/demothread/nbproject/private/
+/demothread/build/
