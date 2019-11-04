@@ -25,10 +25,10 @@ public class Demothread {
                 int min = i/60;
                 int sec = i%60;
                 try {
-                    if(min < 10 && sec < 10) System.out.println("0"+i/60+":"+"0"+i%60);
-                    else if(min < 10 ) System.out.println("0"+i/60+":"+i%60);
-                    else if(sec < 10 ) System.out.println(i/60+":"+"0"+i%60);
-                    else System.out.println(i/60+":"+i%60);
+                    if(min < 10 && sec < 10) System.out.println("0"+min+":"+"0"+sec);
+                    else if(min < 10 ) System.out.println("0"+min+":"+sec);
+                    else if(sec < 10 ) System.out.println(min+":"+"0"+sec);
+                    else System.out.println(min+":"+sec);
                     Thread.sleep(1000);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Demothread.class.getName()).log(Level.SEVERE, null, ex);
