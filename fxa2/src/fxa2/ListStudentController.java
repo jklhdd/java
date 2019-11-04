@@ -32,7 +32,7 @@ public class ListStudentController implements Initializable{
     public TableColumn<Student,String> name = new TableColumn<>();
     public TableColumn<Student,Integer> age = new TableColumn<>();
     public TableColumn<Student,Integer> score = new TableColumn<>();
-    public static String ftxt= "";
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("liststudent.fxml"));
@@ -49,7 +49,7 @@ public class ListStudentController implements Initializable{
     }
     public ArrayList<Student> readfile(){
         ArrayList<Student> arr= new ArrayList<>();
-
+        String ftxt= "";
         File f = new File("C:/Users/Long/Documents/Demo.txt");
         
 

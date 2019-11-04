@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package fxa2;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -42,12 +44,27 @@ public class StudentController {
     
     public void writeFile(String s){
         File f = new File("C:/Users/Long/Documents/Demo.txt");
-        
+        String ftxt= "";
+        if (f.canRead()){
+            try{
+                FileInputStream fis = new FileInputStream(f);
+                DataInputStream dis = new DataInputStream(fis);
+                String line= "";
+                while ((line = dis.readLine()) !=null){
+                    ftxt += line+"\n";
+                    
+                }
+            }catch (FileNotFoundException e){
+                System.out.println(e.getMessage());
+            }catch (IOException e){
+                System.out.println(e.getMessage());
+            }
+        }
         if(f.canWrite()){
                 try{
                     FileOutputStream fos = new FileOutputStream(f);
                     DataOutputStream dos = new DataOutputStream(fos);                    
-                    dos.writeBytes( ListStudentController.ftxt+s );
+                    dos.writeBytes( ftxt+s );
                 }catch (FileNotFoundException e){
                     System.out.println(e.getMessage());
                 }catch (IOException e){
