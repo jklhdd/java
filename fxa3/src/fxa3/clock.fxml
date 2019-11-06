@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:controller="fxa3.ClockController"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id = "min" layoutX="70.0" layoutY="48.0" prefHeight="25.0" prefWidth="155.0" promptText="Minute" />
+      <TextField fx:id = "sec" layoutX="383.0" layoutY="48.0" promptText="Second" />
+      <Button onAction="#startClock"  layoutX="205.0" layoutY="249.0" mnemonicParsing="false" text="Start" />
+      <Button onAction="#pauseClock" layoutX="360.0" layoutY="249.0" mnemonicParsing="false" text="Pause" />
+      <Text fx:id = "mclk" layoutX="128.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text layoutX="296.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text fx:id = "sclk" layoutX="438.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
