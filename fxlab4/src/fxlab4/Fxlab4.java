@@ -22,10 +22,8 @@ public class Fxlab4 {
         SoNguyenTo s = new SoNguyenTo();       
         Runnable r1 = () -> {            
             synchronized(s){    
-                while(true){
-                    
-                    System.out.println(Thread.currentThread().getName()+":   "+s.nextSoNguyenTo());
-                    
+                while(true){                    
+                    System.out.println(Thread.currentThread().getName()+":   "+s.nextSoNguyenTo());                    
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException ex) {
@@ -64,7 +62,9 @@ public class Fxlab4 {
             
         t1.start();
         t2.start();
-            
+//        new Thread (()->{
+//            //runnable hear
+//        }).start();    
             
         
         

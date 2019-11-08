@@ -5,6 +5,7 @@
  */
 package demothread;
 
+import java.util.concurrent.CountDownLatch;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,8 +19,9 @@ public class Demothread {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here  
-        
+        try {
+            // TODO code application logic here
+            
 //        Runnable r1 = ()->{
 //            for(int i = 600;i>0;i--){  
 //                int min = i/60;
@@ -40,30 +42,46 @@ public class Demothread {
 //        };
 //        Thread r2 = new Thread(r1);
 //        r2.start();
-//        
+//
 //       
 
-        Number n = new Number();
-        
-        Runnable r1 = () ->{
-            for(int i = 0;i<100;i++){
-                // khóa n
-                synchronized(n){
-                    n.count();
-                    n.showCount();
-                }
-                try{
-                    Thread.sleep(100);
-                }catch(Exception e){
-                    
-                }
-            }
-        };
-        
-        Thread t1 = new Thread(r1);
-        Thread t2 = new Thread(r1);
-        t1.start();
-        t2.start();
+Number n = new Number();
+
+Runnable r1 = () ->{
+    for(int i = 0;i<100;i++){
+        // khóa n
+        synchronized(n){
+            n.count();
+            n.showCount();
+        }
+        try{
+            Thread.sleep(100);
+        }catch(Exception e){
+            
+        }
+    }
+};
+
+Thread t1 = new Thread(r1);
+Thread t2 = new Thread(r1);
+t1.start();
+t2.start();
+final CountDownLatch latch = new CountDownLatch(1);
+final Thread t = new Thread(new Runnable() {
+    @Override
+    public void run() {
+        System.out.println("qwerty");
+        latch.countDown();
+    }
+});
+
+t.start();
+latch.await();
+
+System.out.println("absolutely sure, qwerty as been printed");
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Demothread.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

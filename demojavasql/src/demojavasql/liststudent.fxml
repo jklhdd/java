@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="demojavasql.ListStudentController">
+   <children>
+      <TableView fx:id="table" layoutX="33.0" layoutY="28.0" prefHeight="305.0" prefWidth="498.0">
+        <columns>
+          <TableColumn fx:id="name" prefWidth="186.0" text="Name" />
+          <TableColumn fx:id="age" prefWidth="138.0" text="Age" />
+            <TableColumn fx:id="score" prefWidth="173.0" text="Score" />
+        </columns>
+      </TableView>
+      <Button onAction="#addStudent" layoutX="33.0" layoutY="351.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="71.0" text="Back" />
+   </children>
+</Pane>
