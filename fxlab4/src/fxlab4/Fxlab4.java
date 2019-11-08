@@ -19,20 +19,54 @@ public class Fxlab4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        SoNguyenTo s = new SoNguyenTo();        
-        Runnable r1 = () -> {
-            synchronized(s){
+        SoNguyenTo s = new SoNguyenTo();       
+        Runnable r1 = () -> {            
+            synchronized(s){    
                 while(true){
-                    System.out.println(s.nextSoNguyenTo());
-                    System.out.println(s.binhPhuongSoNguyenTo());
+                    
+                    System.out.println(Thread.currentThread().getName()+":   "+s.nextSoNguyenTo());
+                    
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Fxlab4.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    try {
+                        s.wait();
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Fxlab4.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    s.notify();
                 }
-            }
+            }    
+        };
+        Runnable r2 = () -> {            
+            synchronized(s){
+                while(true){                    
+                    System.out.println(Thread.currentThread().getName()+":   "+s.binhPhuongSoNguyenTo());                    
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Fxlab4.class.getName()).log(Level.SEVERE, null, ex);
+                    }                    
+                    s.notify();                    
+                    try {
+                        s.wait();
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Fxlab4.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }    
         };
         
-        Thread t1 = new Thread(r1);
+        Thread t1 = new Thread(r1);        
+        Thread t2 = new Thread(r2);        
+            
         t1.start();
-        Thread t2 = new Thread(r1);
         t2.start();
+            
+            
+        
         
     }
     
