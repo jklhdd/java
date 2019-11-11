@@ -16,6 +16,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import javafx.scene.control.TextField;
 import javafx.fxml.FXMLLoader;
@@ -31,17 +32,26 @@ public class StudentController {
     
     public void listStudent(){
         try{
-        String n = name.getText();
-        Integer a = Integer.parseInt(age.getText());
-        Float s = Float.parseFloat(score.getText());
+//        String n = name.getText();
+//        Integer a = Integer.parseInt(age.getText());
+//        Float s = Float.parseFloat(score.getText());
         Class.forName("com.mysql.jdbc.Driver");
             
         Connection conn = DriverManager.getConnection(url, username, password);
             
-        Statement stm = conn.createStatement();
+//        Statement stm = conn.createStatement();
+//        
+//        String ins_sql = "INSERT INTO student(st_name,age,score) VALUES ('"+n+"'"+","+a+","+s+")"+";";
+//        stm.executeUpdate(ins_sql);
         
-        String ins_sql = "INSERT INTO student(st_name,age,score) VALUES ('"+n+"'"+","+a+","+s+")"+";";
-        stm.executeUpdate(ins_sql);
+        String sql = "INSERT INTO student(st_name,age,score) VALUES (?,?,?)";
+        PreparedStatement prstm = conn.prepareStatement(sql);
+        prstm.setString(1, name.getText());
+        prstm.setString(2,age.getText());
+        prstm.setString(3,score.getText());
+        prstm.execute();
+        conn.close();
+        
         Parent liststudent = FXMLLoader.load(getClass().getResource("liststudent.fxml"));
         Demojavasql.mainStage.getScene().setRoot(liststudent);        
         } catch(Exception e){
