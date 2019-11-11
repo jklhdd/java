@@ -32,6 +32,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 /**
  *
@@ -42,6 +43,7 @@ public class ListStudentController implements Initializable{
     public TableColumn<Student,String> name = new TableColumn<>();
     public TableColumn<Student,Integer> age = new TableColumn<>();
     public TableColumn<Student,Integer> score = new TableColumn<>();
+    public TextField sbyname = new TextField();
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,6 +82,27 @@ public class ListStudentController implements Initializable{
         try{
         Parent newuser = FXMLLoader.load(getClass().getResource("newstudent.fxml"));
         Demojavasql.mainStage.getScene().setRoot(newuser);
+        } catch(Exception e){
+                System.out.println("Error!");
+        }
+    }
+    public void findStudent(){
+        try{
+            
+        
+        Connection conn = DriverManager.getConnection(url, username, password);
+        
+        Statement stm = conn.createStatement();
+            
+        String sql = "SELECT * FROM student WHERE st_name = '"+sbyname.getText()+"'"+";";
+            
+        ResultSet rs = stm.executeQuery(sql);
+        ObservableList<Student> list = FXCollections.observableArrayList();
+        while(rs.next()){
+               Student s = new Student(rs.getString("st_name"), rs.getInt("age"), rs.getFloat("score"));
+               list.add(s); 
+        }
+        table.setItems(list);
         } catch(Exception e){
                 System.out.println("Error!");
         }
