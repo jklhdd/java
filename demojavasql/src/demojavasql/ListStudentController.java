@@ -88,8 +88,6 @@ public class ListStudentController implements Initializable{
     }
     public void findStudent(){
         try{
-            
-        
         Connection conn = DriverManager.getConnection(url, username, password);
         
         Statement stm = conn.createStatement();
