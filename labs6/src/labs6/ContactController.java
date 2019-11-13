@@ -24,22 +24,23 @@ import javafx.scene.Parent;
  */
 public class ContactController implements Initializable{
     public ListView<Contact> listcontact = new ListView<>();
-    public static int selectID;
+    //public static int selectID;
+    public static Contact detail;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try{
-            Class.forName("com.mysql.jdbc.Driver");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("contact.fxml"));
-            Connection conn = DriverManager.getConnection(Labs6.url, Labs6.username, Labs6.password);
-            Statement stm = conn.createStatement();            
+//            Class.forName("com.mysql.jdbc.Driver");
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("contact.fxml"));
+//            Connection conn = DriverManager.getConnection(Labs6.url, Labs6.username, Labs6.password);
+//            Statement stm = conn.createStatement();    
+            Connector connector = Connector.getInstance();
             String sql = "SELECT * FROM contact";            
-            ResultSet rs = stm.executeQuery(sql);
+            ResultSet rs = connector.getQuery(sql);
             
             ObservableList<Contact> List = FXCollections.observableArrayList();
             while(rs.next()){
                List.add(new Contact(rs.getInt("id"), rs.getString("name"), rs.getString("company"), rs.getString("address"))); 
             }
-            
             listcontact.setItems(List);
             
         }catch(Exception ex){
@@ -47,11 +48,10 @@ public class ContactController implements Initializable{
         }
     }
     public void findContact(){
+        detail = listcontact.getSelectionModel().getSelectedItem();
         try{
-        selectID = listcontact.getSelectionModel().getSelectedItem().getId();
-        Parent number = FXMLLoader.load(getClass().getResource("number.fxml"));
-        
-        Labs6.mainstage.getScene().setRoot(number);
+            Parent number = FXMLLoader.load(getClass().getResource("number.fxml"));
+            Labs6.mainstage.getScene().setRoot(number);
         } catch(Exception e){
                 System.out.println("Error!");
         }

@@ -48,10 +48,8 @@ public class ListStudentController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Connector conn = Connector.getInstance();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("liststudent.fxml"));
-            
-            Connection conn = DriverManager.getConnection(url, username, password);
             
             Statement stm = conn.createStatement();
             

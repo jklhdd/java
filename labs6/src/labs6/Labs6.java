@@ -20,9 +20,7 @@ public class Labs6 extends Application {
     /**
      * @param args the command line arguments
      */
-    public static String url = "jdbc:mysql://localhost:3306/phone?useUnicode=true&characterEncoding=utf-8";
-    public static String username = "root";
-    public static String password = "";
+    
     public static void main(String[] args)  {
         // TODO code application logic here
         launch(args);     

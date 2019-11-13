@@ -26,14 +26,12 @@ public class NumberController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try{
-            Class.forName("com.mysql.jdbc.Driver");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("number.fxml"));
-            Connection conn = DriverManager.getConnection(Labs6.url, Labs6.username, Labs6.password);
-            Statement stm = conn.createStatement();            
-            String sql = "SELECT * FROM phonenumber WHERE contact_id = "+ContactController.selectID+";";            
-            ResultSet rs = stm.executeQuery(sql);
+            Connector connector  = Connector.getInstance();           
+            String sql = "SELECT * FROM phonenumber WHERE contact_id = "+ContactController.detail.getId()+";";           
             
+            ResultSet rs = connector.getQuery(sql);            
             ObservableList<Number> List = FXCollections.observableArrayList();
+            
             while(rs.next()){
                List.add(new Number(rs.getInt("number"), rs.getInt("type"), rs.getInt("contact_id"))); 
             }
