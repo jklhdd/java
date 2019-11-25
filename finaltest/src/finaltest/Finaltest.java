@@ -26,8 +26,7 @@ public class Finaltest {
             menu();
             System.out.println("Nhap lua chon: ");
             lc = sc.nextInt();
-            switch(lc){
-                
+            switch(lc){                
                 case 1:
                     sm.addStudent();break;
                 case 2:                    

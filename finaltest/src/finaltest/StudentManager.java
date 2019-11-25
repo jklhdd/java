@@ -43,8 +43,10 @@ public class StudentManager {
     }
     
     public void display(){
+        System.out.println("StudentID    StudentName    Address    Phone");
         for(Student s : list){
-            System.out.println(s.toString());
+            System.out.println(s.getId()+"\t" + s.getName()+"\t" + s.getAddress()+"\t" +s.getPhone()+"\t");
+            
         }
     }
     
