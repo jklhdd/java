@@ -51,7 +51,7 @@ public class ListStudentController implements Initializable{
             Connector conn = Connector.getInstance();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("liststudent.fxml"));
             
-            Statement stm = conn.createStatement();
+            Statement stm = conn.conn.createStatement();
             
             String sql = "SELECT * FROM student";
             
@@ -67,8 +67,6 @@ public class ListStudentController implements Initializable{
                List.add(s); 
             }            
             table.setItems(List);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ListStudentController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(ListStudentController.class.getName()).log(Level.SEVERE, null, ex);
         }

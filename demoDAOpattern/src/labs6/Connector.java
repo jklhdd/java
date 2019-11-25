@@ -46,14 +46,15 @@ public class Connector {
         return null;
     }
 
-    public boolean updateQuery(String sql){
+    public int updateQuery(String sql){
+        int aff = 0;
         try{
+            
             PreparedStatement prstm = conn.prepareStatement(sql);
-            if(prstm.executeUpdate() > 0){
-                return true;
-            }
+            aff = prstm.executeUpdate();            
+            
         }catch (Exception e){}
-        return false;
+        return aff;
     }
 
     public void close(){

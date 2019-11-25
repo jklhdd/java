@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="labs6.NumberController">
+   <children>
+      <ListView fx:id="numberlist" layoutX="35.0" layoutY="73.0" prefHeight="255.0" prefWidth="531.0" />
+      <Hyperlink layoutX="14.0" layoutY="24.0" onAction="#back" prefHeight="31.0" prefWidth="71.0" text="&lt;&lt; Back">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Hyperlink>
+      <Text fx:id="txt" layoutX="209.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Button onAction="#deleteContact" layoutX="35.0" layoutY="345.0" mnemonicParsing="false" text="Delete Contact" />
+            
+   </children>
+</Pane>

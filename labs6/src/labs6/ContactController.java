@@ -12,7 +12,6 @@ import javafx.scene.control.ListView;
 import java.sql.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.input.MouseEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
@@ -30,9 +29,10 @@ public class ContactController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         try{
 //            Class.forName("com.mysql.jdbc.Driver");
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("contact.fxml"));
+            
 //            Connection conn = DriverManager.getConnection(Labs6.url, Labs6.username, Labs6.password);
 //            Statement stm = conn.createStatement();    
+            
             Connector connector = Connector.getInstance();
             String sql = "SELECT * FROM contact";            
             ResultSet rs = connector.getQuery(sql);

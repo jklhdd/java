@@ -26,10 +26,10 @@ public class NumberController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try{
-            Connector connector  = Connector.getInstance();           
+            Connector connector  = Connector.getInstance();
             String sql = "SELECT * FROM phonenumber WHERE contact_id = "+ContactController.detail.getId()+";";           
             
-            ResultSet rs = connector.getQuery(sql);            
+            ResultSet rs = connector.getQuery(sql);
             ObservableList<Number> List = FXCollections.observableArrayList();
             
             while(rs.next()){
