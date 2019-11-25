@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -28,6 +29,7 @@ public class FXMLDocumentController  {
     public TextField cpass = new TextField();
     public RadioButton vn = new RadioButton();
     public RadioButton en = new RadioButton();
+    public Button signin = new Button();
     
     public void changeLanguage(){
         ResourceBundle bundle = ResourceBundle.getBundle("demolanguage.Messages");
@@ -35,6 +37,11 @@ public class FXMLDocumentController  {
         title.setText(bundle.getString("title"));
         en.setText(bundle.getString("en"));
         vn.setText(bundle.getString("vn"));
+        username.setPromptText(bundle.getString("name"));
+        email.setPromptText(bundle.getString("email"));
+        pass.setPromptText(bundle.getString("pass"));
+        cpass.setPromptText(bundle.getString("cpass"));
+        signin.setText(bundle.getString("signin"));
     }
     
     public void langVN(){
@@ -45,8 +52,14 @@ public class FXMLDocumentController  {
     }
     
     public void langEN(){
-        
+        Locale.setDefault(Locale.US);
+        this.unselectedButton();
+        en.setSelected(true);
+        this.changeLanguage();
     }
       
-    
+    public void unselectedButton(){
+        vn.setSelected(false);
+        en.setSelected(false);
+    }
 }

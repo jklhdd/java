@@ -23,6 +23,6 @@
          
       </RadioButton>
       <RadioButton onAction="#langVN" fx:id="vn" layoutX="13.0" layoutY="38.0" mnemonicParsing="false" text="VN" />
-      <Button layoutX="447.0" layoutY="311.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="69.0" text="Sign in" />
+      <Button fx:id="signin" layoutX="447.0" layoutY="311.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="69.0" text="Sign in" />
    </children>
 </Pane>
