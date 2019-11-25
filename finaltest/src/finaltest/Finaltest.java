@@ -20,17 +20,17 @@ public class Finaltest {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
         StudentManager sm = new StudentManager();
-        while(true){
-            sm.fileOutput();
+        sm.fileOutput();
+        while(true){            
             int lc;
             menu();
             System.out.println("Nhap lua chon: ");
             lc = sc.nextInt();
             switch(lc){
+                
                 case 1:
                     sm.addStudent();break;
-                case 2:
-                    
+                case 2:                    
                     sm.display();break;
                 case 3:
                     sm.fileInput();break;

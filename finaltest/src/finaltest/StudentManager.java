@@ -57,6 +57,7 @@ public class StudentManager {
                 String line= "";
                 while ((line = dis.readLine()) !=null){
                     ftxt += line+"\n";
+                    
                     String[] strs = line.split(",");
                     Student s = new Student(strs[0],strs[1],strs[2],strs[3]);
                     list.add(s);
