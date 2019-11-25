@@ -20,7 +20,6 @@ public class Finaltest {
         // TODO code application logic here
         Scanner sc = new Scanner(System.in);
         StudentManager sm = new StudentManager();
-        sm.fileOutput();
         while(true){            
             int lc;
             menu();
